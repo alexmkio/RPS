@@ -2,7 +2,7 @@
 var game = new Game({ gameType: 'difficult' })
 function instantiatePlayers() {
   var human = new Player({ name: 'Human', emoji: '👩🏻' });
-  var computer = new Player({ name: 'HAL 9000', emoji: '💻' });
+  var computer = new Player({ name: 'Computer', emoji: '💻' });
   game.players.push(human)
   game.players.push(computer)
 }
