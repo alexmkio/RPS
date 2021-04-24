@@ -51,12 +51,14 @@ function showClassicGame() {
   game.gameType = 'classic'
   transitionToGame()
   toggle(classicGame)
+  assignComputerChoice()
 }
 
 function showDifficultGame() {
   game.gameType = 'difficult'
   transitionToGame() 
   toggle(difficultGame)
+  assignComputerChoice()
 }
 
 function transitionToGame() {
@@ -77,9 +79,9 @@ function handleChangeGameClick(e) {
   }
 }
 
-function assignComputerChoice(gametype) {
+function assignComputerChoice() {
   var computerChoice;
-  if (gametype === 'classic') {
+  if (game.gametype === 'classic') {
     computerChoice = getRandomInt(4);
   } else {
     computerChoice = getRandomInt(6);
@@ -96,10 +98,15 @@ function assignComputerChoice(gametype) {
     game.players[1].choice = 'Alien';
   }
 }
-assignComputerChoice(game.gameType)
 
 function showWinner() {
-
+  if (game.winner === 'draw') {
+    console.log(`DRAW`)
+  } else if (game.winner = this.players[0].name) {
+    console.log(`${this.players[0].emoji} ${this.players[0].name} WON! ${this.players[0].emoji}`)
+  } else {
+    console.log(`${this.players[1].emoji} ${this.players[1].name} WON! ${this.players[1].emoji}`)
+  }
 }
 
 
