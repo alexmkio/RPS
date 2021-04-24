@@ -21,12 +21,21 @@ var changeGameBtn = document.querySelector('#changeGameBtn')
 var classicGame = document.querySelector('#classicGame')
 var difficultGame = document.querySelector('#difficultGame')
 
-
 window.addEventListener('load', populateDynamicSides)
 classicGameBtn.addEventListener('click', showClassicGame)
 difficultGameBtn.addEventListener('click', showDifficultGame)
 leftColumn.addEventListener('click', game.resetBoard);
 
+var rockImg = document.querySelector('#rockImg')
+var paperImg = document.querySelector('#paperImg')
+var scissorsImg = document.querySelector('#scissorsImg')
+var lizardImg = document.querySelector('#lizardImg')
+var alienImg = document.querySelector('#alienImg')
+rockImg.addEventListener('click', humanChoseRock)
+paperImg.addEventListener('click', humanChoseRock)
+scissorsImg.addEventListener('click', humanChoseRock)
+lizardImg.addEventListener('click', humanChoseRock)
+alienImg.addEventListener('click', humanChoseRock)
 
 function populateDynamicSides() {
   leftColumn.innerHTML = `
@@ -57,6 +66,7 @@ function showClassicGame() {
 function showDifficultGame() {
   game.gameType = 'difficult'
   transitionToGame() 
+  toggle(classicGame)
   toggle(difficultGame)
   assignComputerChoice()
 }
@@ -99,18 +109,40 @@ function assignComputerChoice() {
   }
 }
 
+function humanChoseRock() {
+  game.players[0].choice = 'Rock';
+  game.whoWon()
+}
+
+function humanChosePaper() {
+  game.players[0].choice = 'Paper';
+  game.whoWon()
+}
+
+function humanChoseScissors() {
+  game.players[0].choice = 'Scissors';
+  game.whoWon()
+}
+
+function humanChoseLizard() {
+  game.players[0].choice = 'Lizard';
+  game.whoWon()
+}
+
+function humanChoseAlien() {
+  game.players[0].choice = 'Alien';
+  game.whoWon()
+}
+
 function showWinner() {
   if (game.winner === 'draw') {
     console.log(`DRAW`)
-  } else if (game.winner = this.players[0].name) {
-    console.log(`${this.players[0].emoji} ${this.players[0].name} WON! ${this.players[0].emoji}`)
+  } else if (game.winner === game.players[0].name) {
+    console.log(`${game.players[0].emoji} ${game.players[0].name} WON! ${game.players[0].emoji}`)
   } else {
-    console.log(`${this.players[1].emoji} ${this.players[1].name} WON! ${this.players[1].emoji}`)
-  }
-}
-
-
-
+    console.log(`${game.players[1].emoji} ${game.players[1].name} WON! ${game.players[1].emoji}`)
+  }  
+}  
 
 
 
