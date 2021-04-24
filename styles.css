@@ -1,45 +1,65 @@
-body {
-	display: flex;
-	justify-content: space-between;
-}
-
-html, body {
+* {
   font-family: 'Open Sans', sans-serif;
-  font-size: xx-large;
-  font-weight: 400;
   color: #FFFFFF;
   text-align: center;
-  height: 100%;
   margin: 0;
 }
 
-  body {
-    display: flex;
-    justify-content: space-between;
-    min-height: 100%;
-  }
-  
+html, body {
+  height: 100%;
+}
 
-  .side {
-    background-color: #C36FEC;
-    padding: 0 2rem; 
-  }
-  
-  .middle {
-    width: 100%;
-    background-color: #BB56ED;
-    /* display: flex;
-    flex-direction: column; */
-  }
-  
+body {
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.side {
+  background-color: #C36FEC;
+}
+
+.middle {
+  width: 100%;
+  background-color: #BB56ED;
+}
+
 
 /* Typography */
+
+html, body, h2 {
+  font-size: xx-large;
+  font-weight: 400;
+}
 
 h1 {
   font-size: 2.6rem;
   font-weight: 800;
   margin: 0.7em 0 0 0;
 }
+
+h2 {
+  margin-bottom: 3rem;
+}
+
+h3 {
+  font-size: .9rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+p {
+  font-size: .7rem;
+  margin: 1em 0 1.2em 0;
+  line-height: 1.2em;
+}
+
 
 figure {
   font-size: 1.7rem;
@@ -51,29 +71,34 @@ figure {
 
 
 
-
-
+aside {
+  padding: 0 2rem;   
+}
 
 .wins {
-  font-size: x-large;
+  font-size: .9rem;
   font-weight: 300;
   margin: 1.5rem 0 0 0;
 }
 
-button {
-  /* display: inline; */
+.change-game {
   text-transform: uppercase;
-  text-align: center;
   border: none;
-  font-size: medium;
+  font-size: large;
   color: #FFFFFF;
-  border-radius: 3px;
-  padding: 1em;
+  padding: 1.1em;
   background-color: #9D35D2;
   margin: 2.5rem 0 0 0;
 }
 
-
+.game-selection {
+  width: 23em;
+  border: none;
+  color: #FFFFFF;
+  background-color: #9D35D2;
+  padding: 2em 0;
+  margin: 0.7rem 0;
+}
 
 
 
