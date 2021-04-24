@@ -1,8 +1,37 @@
 * {
   height: 100%;
-  font-family: 'Open Sans', sans-serif;
   margin: 0;
 }
+
+html, h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-align: center;
+  /* margin: 0; */
+  
+}
+
+/* Typography */
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0;
+  padding-top: 0.7em;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.wins {
+  font-weight: 300;
+}
+
+
 
 .body {
 	display: flex;
@@ -17,13 +46,8 @@
 .middle {
   width: 72%;
   background-color: #BB56ED;
-  display: flex;
-	flex-direction: column;
 }
 
-.top-middle {
-  height: 30%;
-}
 
 
 
