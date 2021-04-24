@@ -1,4 +1,6 @@
 // localStorage.clear()
+// is there anywhere I could utilize passing in arguments or any other
+// strategies to tidy up code?
 var game = new Game()
 function instantiatePlayers() {
   var human = new Player({ name: 'Human', emoji: '👩🏻' });
@@ -26,6 +28,7 @@ classicGameBtn.addEventListener('click', showClassicGame)
 difficultGameBtn.addEventListener('click', showDifficultGame)
 leftColumn.addEventListener('click', game.resetBoard);
 
+// is this better than injecting that section's HTML and event bubbling?
 var rockImg = document.querySelector('#rockImg')
 var paperImg = document.querySelector('#paperImg')
 var scissorsImg = document.querySelector('#scissorsImg')
@@ -47,14 +50,6 @@ function populateDynamicSides() {
     <aside>${game.players[1].name}</aside>
     <aside class="wins">Wins: ${game.players[1].wins}</aside>`
 }
-
-// can I use arguments?
-// chooseClassicGame() {
-//   // Update DOM
-// }
-// chooseDifficultGame() {
-//   // Update DOM
-// }
 
 function showClassicGame() {
   game.gameType = 'classic'
@@ -135,12 +130,17 @@ function humanChoseAlien() {
 }
 
 function showWinner() {
+  hide(classicGame)
+  hide(difficultGame)
   if (game.winner === 'draw') {
-    console.log(`DRAW`)
+    subHeader.innerText = `😭 It's a draw! 😭`
+    
   } else if (game.winner === game.players[0].name) {
-    console.log(`${game.players[0].emoji} ${game.players[0].name} WON! ${game.players[0].emoji}`)
+    subHeader.innerText = `${game.players[0].emoji} ${game.players[0].name} WON! ${game.players[0].emoji}`
+    
   } else {
-    console.log(`${game.players[1].emoji} ${game.players[1].name} WON! ${game.players[1].emoji}`)
+    subHeader.innerText = `${game.players[1].emoji} ${game.players[1].name} WON! ${game.players[1].emoji}`
+    
   }  
 }  
 
