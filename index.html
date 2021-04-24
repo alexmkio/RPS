@@ -1,17 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html class="html">
   <head>
     <meta charset="UTF-8">
-    <style>
-      body {
-        background-image: url('./assets/screen1.png');
-        background-size: cover;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='./styles.css' />
+    <title>Rock Paper Scissors</title>
   </head>
-  <body>
-    <script src="game.js"></script>
-    <script src="player.js"></script>
-    <script src="main.js"></script>
+  <body class="body">
+    <section class="side">
+      <p>`${game.players[0].emoji}`<br>
+      `${game.players[0].name}`<br>
+      `Wins: ${game.players[0].wins}`</p>
+    </section>
+    <section class="middle">
+      <section class="top-middle">
+        <h1>Rock, Paper, Scissors</h1>
+        <h2>Choose your fighter!</h2>
+      </section>
+      <section class="bottom-middle">
+      Bottom middle
+      </section>
+    </section>
+    <section class="side">
+      `${game.players[1].emoji}`<br>
+      `${game.players[1].name}`<br>
+      `Wins: ${game.players[1].wins}`
+    </section>
+    <script src="./game.js"></script>
+    <script src="./player.js"></script>
+    <script src="./main.js"></script>
+    <script src="./sidepiece.js"></script>
   </body>
 </html>

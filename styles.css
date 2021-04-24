@@ -1,0 +1,59 @@
+* {
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+.body {
+	display: flex;
+	justify-content: center;
+}
+
+.side {
+  width: 14%;
+  background-color: #C36FEC;
+}
+
+.middle {
+  width: 72%;
+  background-color: #BB56ED;
+  display: flex;
+	flex-direction: column;
+}
+
+.top-middle {
+  height: 30%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hidden {
+  display: none;
+}
