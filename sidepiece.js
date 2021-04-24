@@ -49,6 +49,8 @@ function handleChangeGameClick(e) {
     hide(difficultGame)
     toggle(classicGameBtn)
     toggle(difficultGameBtn)
+    subHeader.innerText = `Choose your game!`
+    populateDynamicSides()
   }
 }
 
@@ -67,5 +69,5 @@ function toggle(e) {
 }
 
 function hide(e) {
-  e.classList.remove('hidden')
+  e.classList.add('hidden')
 }
