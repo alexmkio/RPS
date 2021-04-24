@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html class="html">
+<html lang='en'>
   <head>
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='./styles.css' />
     <title>Rock Paper Scissors</title>
   </head>
   <body class="body">
-    <section class="side">
-      <p>`${game.players[0].emoji}`<br>
-      `${game.players[0].name}`<br>
-      `Wins: ${game.players[0].wins}`</p>
-    </section>
+    <section class="side" id="leftSide"></section>
     <section class="middle">
       <section class="top-middle">
         <h1>Rock, Paper, Scissors</h1>
@@ -22,11 +18,7 @@
       Bottom middle
       </section>
     </section>
-    <section class="side">
-      `${game.players[1].emoji}`<br>
-      `${game.players[1].name}`<br>
-      `Wins: ${game.players[1].wins}`
-    </section>
+    <section class="side" id="rightSide"></section>
     <script src="./game.js"></script>
     <script src="./player.js"></script>
     <script src="./main.js"></script>
