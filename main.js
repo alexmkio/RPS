@@ -1,7 +1,7 @@
 // localStorage.clear()
 var game = new Game({ gameType: 'difficult' })
 function instantiatePlayers() {
-  var human = new Player({ name: 'Human', emoji: '🤷🏽' });
+  var human = new Player({ name: 'Human', emoji: '👩🏻' });
   var computer = new Player({ name: 'HAL 9000', emoji: '💻' });
   game.players.push(human)
   game.players.push(computer)
