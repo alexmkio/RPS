@@ -7,14 +7,21 @@ class Player {
   }
   saveWinsToStorage() {
     localStorage.setItem(this.name, JSON.stringify(this.wins))
+    localStorage.setItem('whosTurn', JSON.stringify(game.whosTurn))
   }
   retrieveWinsFromStorage() {
-    var parsed = JSON.parse(localStorage.getItem(this.name));
-    if (parsed) {
-      this.wins = parsed;
+    var parsedWins = JSON.parse(localStorage.getItem(this.name));
+    var parsedWhosTurn = JSON.parse(localStorage.getItem('whosTurn'));
+    if (parsedWins) {
+      this.wins = parsedWins;
+      game.whosTurn = parsedWhosTurn;
     }
   }
   takeTurn() {
-    
+    if (game.whosTurn === this.name) {
+      game.whosTurn = game.players[1].name
+    } else {
+      game.whosTurn = this.name
+    }
   }
 }

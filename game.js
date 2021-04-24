@@ -26,10 +26,12 @@ class Game {
       this.players[1].wins++
       console.log(`${this.players[1].emoji} ${this.players[1].name} WON! ${this.players[1].emoji}`)
     }
+    this.players[0].takeTurn()
     this.players[0].saveWinsToStorage()
     this.players[1].saveWinsToStorage()
     console.log(this.players[0].wins)
     console.log(this.players[1].wins)
+    console.log(this.whosTurn)
   }
   resetBoard() {
 

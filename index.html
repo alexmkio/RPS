@@ -1,17 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
     <meta charset="UTF-8">
-    <style>
-      body {
-        background-image: url('./assets/screen1.png');
-        background-size: cover;
-      }
-    </style>
+    <!-- <meta name='viewport' content='width=device-width, initial-scale=1.0'> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='./styles.css' />
+    <title>Rock Paper Scissors</title>
   </head>
-  <body>
-    <script src="game.js"></script>
-    <script src="player.js"></script>
-    <script src="main.js"></script>
+  <body class="body">
+    <section class="side" id="leftSide"></section>
+    <section class="middle">
+      <h1>Rock, Paper, Scissors</h1>
+      <h2>Choose your game!</h2>
+      <button class="game-selection">
+        <h3>🪨 CLASSIC ✂️</h3>
+        <p>
+          rock > scissors<br>
+          paper > rock<br>
+          scissors > paper
+        </p>
+      </button><br>
+      <button class="game-selection">
+        <h3>🦎 DIFFICULT 👽</h3>
+        <p>
+          rock > scissors & lizard<br>
+          paper > rock & alien<br>
+          scissors > paper & lizard<br>
+          lizard > paper & alien<br>
+          alien > scissors & rock
+        </p>
+      </button>
+      <section id="classicGame" class="hidden">
+        <img src="./assets/happy-rocks.png">
+        <img src="./assets/happy-paper.png">
+        <img src="./assets/happy-scissors.png">
+      </section>
+      <section id="difficultGame" class="hidden">
+        <img src="./assets/happy-rocks.png">
+        <img src="./assets/happy-paper.png">
+        <img src="./assets/happy-scissors.png"><br>
+        <img src="./assets/lizard.png">
+        <img src="./assets/happy-alien.png">
+      </section>
+    </section>
+    <section class="side" id="rightSide"></section>
+    <script src="./game.js"></script>
+    <script src="./player.js"></script>
+    <script src="./main.js"></script>
+    <script src="./sidepiece.js"></script>
   </body>
 </html>
