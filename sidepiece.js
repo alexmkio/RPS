@@ -27,11 +27,13 @@ function populateDynamicSides() {
 }
 
 function showClassicGame() {
+  game.gameType = 'classic'
   transitionToGame()
   toggle(classicGame)
 }
 
 function showDifficultGame() {
+  game.gameType = 'difficult'
   transitionToGame() 
   toggle(difficultGame)
 }
@@ -53,6 +55,15 @@ function handleChangeGameClick(e) {
     populateDynamicSides()
   }
 }
+
+
+
+
+
+
+
+
+
 
 
 

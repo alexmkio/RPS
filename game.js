@@ -1,7 +1,7 @@
 class Game {
-  constructor(thisGame) {
+  constructor() {
     this.players = [];
-    this.gameType = thisGame.gameType;
+    this.gameType;
     this.whosTurn;
   }
   whoWon() {
