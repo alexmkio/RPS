@@ -47,11 +47,11 @@ var alienImgDraw = document.querySelector('#alienImgDraw')
 
 function populateDynamicSides() {
   leftColumn.innerHTML = `
-    <figure>${game.players[0].emoji}</figure>
+    <figure alt="Emoji of a person">${game.players[0].emoji}</figure>
     <aside>${game.players[0].name}</aside>
     <aside class="wins">Wins: ${game.players[0].wins}</aside>`
   rightColumn.innerHTML = `
-    <figure>${game.players[1].emoji}</figure>
+    <figure alt="Emoji of a computer">${game.players[1].emoji}</figure>
     <aside>${game.players[1].name}</aside>
     <aside class="wins">Wins: ${game.players[1].wins}</aside>`
 }
@@ -205,6 +205,7 @@ function clearAfterTimeout() {
     populateDynamicSides()
     showWhichGame()
   }, 2000)
+  // return timeout
 }
 
 function hideAllImages() {
@@ -233,6 +234,7 @@ function showWhichGame() {
 // can these two be combined
 function handleChangeGameClick(e) {
   if (e.target.id === "changeGameBtn") {
+    // clearTimeout(timeout)
     hideAllImages()
     resetBoard()
   }
