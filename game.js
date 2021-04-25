@@ -21,16 +21,14 @@ class Game {
     ) {
       this.players[0].wins++
       this.winner = this.players[0].name
-      // console.log(`${this.players[0].emoji} ${this.players[0].name} WON! ${this.players[0].emoji}`)
     } else {
       this.players[1].wins++
       this.winner = this.players[1].name
-      // console.log(`${this.players[1].emoji} ${this.players[1].name} WON! ${this.players[1].emoji}`)
     }
     this.players[0].takeTurn()
     this.players[0].saveWinsToStorage()
     this.players[1].saveWinsToStorage()
-    showWinner()
+    showWinnerHeading()
   }
   resetBoard(e) {
     handleChangeGameClick(e)
