@@ -81,11 +81,11 @@ img {
 .change-game {
   text-transform: uppercase;
   border: none;
-  font-size: 1vw;
+  font-size: 1.2vw;
   color: #FFFFFF;
-  /* padding: 10vw; */
+  padding: 1vw;
   background-color: #9D35D2;
-  margin: 2vw 0 0 0;
+  margin: 6vw 0 0 0;
 }
 
 /* NOT TYPOGRAPHY */
