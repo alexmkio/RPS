@@ -20,12 +20,12 @@ var subHeader = document.querySelector('#subHeader')
 var classicGameBtn = document.querySelector('#classicGameBtn')
 var difficultGameBtn = document.querySelector('#difficultGameBtn')
 var changeGameBtn = document.querySelector('#changeGameBtn')
-var classicGame = document.querySelector('#classicGame')
-var difficultGame = document.querySelector('#difficultGame')
+var choseFighter = document.querySelector('#choseFighter')
+var difficultLineBreak = document.querySelector('#difficultLineBreak')
 
 window.addEventListener('load', populateDynamicSides)
-classicGameBtn.addEventListener('click', showClassicGame)
-difficultGameBtn.addEventListener('click', showDifficultGame)
+classicGameBtn.addEventListener('click', updateGametypeClassic)
+difficultGameBtn.addEventListener('click', updateGametypeDifficult)
 leftColumn.addEventListener('click', game.resetBoard);
 
 // is this better than injecting that section's HTML and event bubbling?
@@ -35,10 +35,15 @@ var scissorsImg = document.querySelector('#scissorsImg')
 var lizardImg = document.querySelector('#lizardImg')
 var alienImg = document.querySelector('#alienImg')
 rockImg.addEventListener('click', humanChoseRock)
-paperImg.addEventListener('click', humanChoseRock)
-scissorsImg.addEventListener('click', humanChoseRock)
-lizardImg.addEventListener('click', humanChoseRock)
-alienImg.addEventListener('click', humanChoseRock)
+paperImg.addEventListener('click', humanChosePaper)
+scissorsImg.addEventListener('click', humanChoseScissors)
+lizardImg.addEventListener('click', humanChoseLizard)
+alienImg.addEventListener('click', humanChoseAlien)
+var rockImgDraw = document.querySelector('#rockImgDraw')
+var paperImgDraw = document.querySelector('#paperImgDraw')
+var scissorsImgDraw = document.querySelector('#scissorsImgDraw')
+var lizardImgDraw = document.querySelector('#lizardImgDraw')
+var alienImgDraw = document.querySelector('#alienImgDraw')
 
 function populateDynamicSides() {
   leftColumn.innerHTML = `
@@ -51,37 +56,37 @@ function populateDynamicSides() {
     <aside class="wins">Wins: ${game.players[1].wins}</aside>`
 }
 
-function showClassicGame() {
+function updateGametypeClassic() {
   game.gameType = 'classic'
+  showClassicGame()
+}
+
+function updateGametypeDifficult() {
+  game.gameType = 'difficult'
+  showClassicGame()
+  showDifficultGame()
+}
+
+function showClassicGame() {
   transitionToGame()
-  toggle(classicGame)
-  assignComputerChoice()
+  show(choseFighter)
+  show(rockImg)
+  show(paperImg)
+  show(scissorsImg)
 }
 
 function showDifficultGame() {
-  game.gameType = 'difficult'
-  transitionToGame() 
-  toggle(classicGame)
-  toggle(difficultGame)
-  assignComputerChoice()
+  show(difficultLineBreak)
+  show(lizardImg)
+  show(alienImg)
 }
 
 function transitionToGame() {
-  toggle(classicGameBtn)
-  toggle(difficultGameBtn)
+  hide(classicGameBtn)
+  hide(difficultGameBtn)
   subHeader.innerText = `Choose your fighter!`
   leftColumn.innerHTML += `<button class="change-game" id="changeGameBtn">Change Game?</button>`
-}
-
-function handleChangeGameClick(e) {
-  if (e.target.id === "changeGameBtn") {
-    hide(classicGame)
-    hide(difficultGame)
-    toggle(classicGameBtn)
-    toggle(difficultGameBtn)
-    subHeader.innerText = `Choose your game!`
-    populateDynamicSides()
-  }
+  assignComputerChoice()
 }
 
 function assignComputerChoice() {
@@ -129,35 +134,117 @@ function humanChoseAlien() {
   game.whoWon()
 }
 
-function showWinner() {
-  hide(classicGame)
-  hide(difficultGame)
+function showWinnerHeading() {
+  hide(rockImg)
+  hide(paperImg)
+  hide(scissorsImg)
+  hide(difficultLineBreak)
+  hide(lizardImg)
+  hide(alienImg)
   if (game.winner === 'draw') {
     subHeader.innerText = `😭 It's a draw! 😭`
-    
+    showDraw()
   } else if (game.winner === game.players[0].name) {
-    subHeader.innerText = `${game.players[0].emoji} ${game.players[0].name} WON! ${game.players[0].emoji}`
-    
+    subHeader.innerText = `${game.players[0].emoji} ${game.players[0].name} won this round! ${game.players[0].emoji}`
+    showWinner()
   } else {
-    subHeader.innerText = `${game.players[1].emoji} ${game.players[1].name} WON! ${game.players[1].emoji}`
-    
-  }  
+    subHeader.innerText = `${game.players[1].emoji} ${game.players[1].name} won this round! ${game.players[1].emoji}`
+    showWinner()
+  }
 }  
 
+function showDraw() {
+  if (game.players[0].choice === 'Rock') {
+    show(rockImg)
+    show(rockImgDraw)
+  } else if (game.players[0].choice === 'Paper') {
+    show(paperImg)
+    show(paperImgDraw)
+  } else if (game.players[0].choice === 'Scissors') {
+    show(scissorsImg)
+    show(scissorsImgDraw)
+  } else if (game.players[0].choice === 'Lizard') {
+    show(lizardImg)
+    show(lizardImgDraw)
+  } else {
+    show(alienImg)
+    show(alienImgDraw)
+  }
+  clearAfterTimeout()
+}
+
+function showWinner() {
+  if (game.players[0].choice === 'Rock') {
+    show(rockImg)
+  } else if (game.players[0].choice === 'Paper') {
+    show(paperImg)
+  } else if (game.players[0].choice === 'Scissors') {
+    show(scissorsImg)
+  } else if (game.players[0].choice === 'Lizard') {
+    show(lizardImg)
+  } else if (game.players[0].choice === 'Alien') {
+    show(alienImg)
+  }
+  if (game.players[1].choice === 'Rock') {
+    show(rockImgDraw)
+  } else if (game.players[1].choice === 'Paper') {
+    show(paperImgDraw)
+  } else if (game.players[1].choice === 'Scissors') {
+    show(scissorsImgDraw)
+  } else if (game.players[1].choice === 'Lizard') {
+    show(lizardImgDraw)
+  } else if (game.players[1].choice === 'Alien') {
+    show(alienImgDraw)
+  }
+  clearAfterTimeout()
+}
+
+function clearAfterTimeout() {
+  var timeout = setTimeout(function() {
+    hideAllImages()
+    populateDynamicSides()
+    showWhichGame()
+  }, 2000)
+}
+
+function hideAllImages() {
+  hide(rockImg)
+  hide(paperImg)
+  hide(scissorsImg)
+  hide(lizardImg)
+  hide(alienImg)
+  hide(rockImgDraw)
+  hide(paperImgDraw)
+  hide(scissorsImgDraw)
+  hide(lizardImgDraw)
+  hide(alienImgDraw)
+} 
+
+function showWhichGame() {
+  if (game.gameType === 'classic') {
+    showClassicGame()
+  } else {
+    showClassicGame()
+    showDifficultGame()
+  }
+}
 
 
+// can these two be combined
+function handleChangeGameClick(e) {
+  if (e.target.id === "changeGameBtn") {
+    hideAllImages()
+    resetBoard()
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
+function resetBoard() {
+  hide(choseFighter)
+  show(classicGameBtn)
+  show(difficultGameBtn)
+  subHeader.innerText = `Choose your game!`
+  populateDynamicSides()
+}
 
 function toggle(e) {
   e.classList.toggle('hidden')
@@ -165,6 +252,10 @@ function toggle(e) {
 
 function hide(e) {
   e.classList.add('hidden')
+}
+
+function show(e) {
+  e.classList.remove('hidden')
 }
 
 function getRandomInt(max) {
