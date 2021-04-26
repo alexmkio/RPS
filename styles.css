@@ -1,11 +1,8 @@
 * {
-  font-family: 'Open Sans', sans-serif;
-  color: #FFFFFF;
-  text-align: center;
   margin: 0;
 }
 
-html, body {
+html {
   height: 100%;
 }
 
@@ -29,86 +26,90 @@ body {
   background-color: #BB56ED;
 }
 
-
 /* Typography */
 
-html, body, h2 {
-  font-size: xx-large;
-  font-weight: 400;
+html {
+  font-family: 'Open Sans', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: calc(1em + 1vw);
 }
 
 h1 {
-  font-size: 2.6rem;
+  font-size: 5vw;
   font-weight: 800;
   margin: 0.7em 0 0 0;
 }
 
 h2 {
-  margin-bottom: 3rem;
+  font-size: 2vw;
+  font-weight: 400;
+  margin-bottom: 5vw;
 }
 
 h3 {
-  font-size: .9rem;
+  font-size: 1.8vw;
   font-weight: 400;
   text-transform: uppercase;
   margin: 0;
 }
 
 p {
-  font-size: .7rem;
+  font-size: 1.5vw;
+  /* why don't this do anything? */
+  font-weight: 300;
   margin: 1em 0 1.2em 0;
   line-height: 1.2em;
 }
 
 
 figure {
-  font-size: 1.7rem;
+  font-size: 3vw;
   margin: 1.5rem 0 0 0;
 }
 
 img {
-  width: 7.5rem;
-}
-
-
-
-
-
-aside {
-  padding: 0 2rem;   
+  width: 14vw;
 }
 
 .wins {
-  font-size: .9rem;
+  font-size: 1.8vw;
   font-weight: 300;
-  margin: 1.5rem 0 0 0;
+  margin: 1.5vw 0 0 0;
 }
 
 .change-game {
   text-transform: uppercase;
   border: none;
-  font-size: large;
+  font-size: 1.2vw;
   color: #FFFFFF;
-  padding: 1.1em;
+  padding: 1vw;
   background-color: #9D35D2;
-  margin: 2.5rem 0 0 0;
+  margin: 6vw 0 0 0;
+  cursor: pointer;
+}
+
+/* NOT TYPOGRAPHY */
+
+aside {
+  font-size: 2vw;
+  font-weight: 400;
+  padding: 0 3.8vw;   
 }
 
 .game-selection {
-  width: 23em;
+  width: 19vw;
   border: none;
   color: #FFFFFF;
   background-color: #9D35D2;
-  padding: 2em 0;
-  margin: 0.7rem 0;
+  padding: 1vw 0;
+  margin: 1.5vw 0;
+  cursor: pointer;
 }
 
-
-
-
-
-
-
+.pointer {
+  cursor: pointer;
+}
 
 .hidden {
   display: none;
