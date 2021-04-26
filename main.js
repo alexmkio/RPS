@@ -30,7 +30,6 @@ var paperImgDraw = document.querySelector('#paperImgDraw');
 var scissorsImgDraw = document.querySelector('#scissorsImgDraw');
 var lizardImgDraw = document.querySelector('#lizardImgDraw');
 var alienImgDraw = document.querySelector('#alienImgDraw');
-
 var allImages = document.querySelectorAll('img');
 
 window.addEventListener('load', populateDynamicSides);

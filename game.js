@@ -4,7 +4,7 @@ class Game {
     this.gameType;
     this.whosTurn;
     this.winner;
-  }
+  };
   whoWon() {
     if (this.players[0].choice === this.players[1].choice) {
       this.winner = 'draw';
@@ -24,12 +24,12 @@ class Game {
     } else {
       this.players[1].wins++;
       this.winner = this.players[1].name;
-    }
+    };
     this.players[0].takeTurn();
     this.players[0].saveWinsToStorage();
     this.players[1].saveWinsToStorage();
     showWinnerHeading();
-  }
+  };
   resetBoard() {
     changeGame();
   };
