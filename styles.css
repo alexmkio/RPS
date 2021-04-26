@@ -1,3 +1,5 @@
+/* BASE */
+
 * {
   margin: 0;
 }
@@ -6,10 +8,7 @@ html {
   height: 100%;
 }
 
-body {
-  display: flex;
-  justify-content: space-between;
-}
+/* LAYOUT */
 
 body {
   display: flex;
@@ -22,17 +21,17 @@ body {
 }
 
 .middle {
-  width: 100%;
   background-color: #BB56ED;
+  width: 100%;
 }
 
-/* Typography */
+/* TYPOGRAPHY */
 
 html {
-  font-family: 'Open Sans', sans-serif;
   color: #FFFFFF;
-  text-align: center;
+  font-family: 'Open Sans', sans-serif;
   font-size: calc(1em + 1vw);
+  text-align: center;
 }
 
 h1 {
@@ -50,26 +49,20 @@ h2 {
 h3 {
   font-size: 1.8vw;
   font-weight: 400;
-  text-transform: uppercase;
   margin: 0;
+  text-transform: uppercase;
 }
 
 p {
   font-size: 1.5vw;
-  /* why don't this do anything? */
   font-weight: 300;
-  margin: 1em 0 1.2em 0;
   line-height: 1.2em;
+  margin: 1em 0 1.2em 0;
 }
-
 
 figure {
   font-size: 3vw;
   margin: 1.5rem 0 0 0;
-}
-
-img {
-  width: 14vw;
 }
 
 .wins {
@@ -79,13 +72,11 @@ img {
 }
 
 .change-game {
-  text-transform: uppercase;
   font-size: 1.2vw;
-  padding: 1vw;
   margin: 6vw 0 0 0;
+  padding: 1vw;
+  text-transform: uppercase;
 }
-
-/* NOT TYPOGRAPHY */
 
 aside {
   font-size: 2vw;
@@ -93,18 +84,26 @@ aside {
   padding: 0 3.8vw;   
 }
 
+/* MODULES */
+
+img {
+  width: 14vw;
+}
+
 .game-selection {
-  width: 19vw;
-  padding: 1vw 0;
   margin: 1.5vw 0;
+  padding: 1vw 0;
+  width: 19vw;
 }
 
 .button {
+  background-color: #9D35D2;
   border: 0;
   color: #FFFFFF;
-  background-color: #9D35D2;
   cursor: pointer;
 }
+
+/* STATE */
 
 .button:hover {
   background-color: #FFFFFF;
