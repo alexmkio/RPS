@@ -100,7 +100,7 @@ aside {
 }
 
 .button {
-  border: none;
+  border: 0;
   color: #FFFFFF;
   background-color: #9D35D2;
   cursor: pointer;

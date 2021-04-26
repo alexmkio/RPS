@@ -222,7 +222,6 @@ function hideAllImages() {
 
 function showWhichGame() {
   document.getElementById('changeGameBtn').disabled = false;
-  
   if (game.gameType === 'classic') {
     showClassicGame();
   } else {
