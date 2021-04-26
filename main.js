@@ -194,6 +194,7 @@ function showWinner() {
 }
 
 function clearAfterTimeout() {
+  document.getElementById("changeGameBtn").disabled = true;
   var timeout = setTimeout(function() {
     hideAllImages()
     populateDynamicSides()
