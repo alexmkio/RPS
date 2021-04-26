@@ -1,6 +1,3 @@
-// localStorage.clear()
-// is there anywhere I could utilize passing in arguments or any other
-// strategies to tidy up code?
 var game = new Game()
 function instantiatePlayers() {
   var human = new Player({ name: 'Human', emoji: '👩🏻' });
@@ -16,42 +13,39 @@ game.players[1].retrieveWinsFromStorage()
 var leftColumn = document.querySelector('#leftColumn')
 var rightColumn = document.querySelector('#rightColumn')
 var subHeader = document.querySelector('#subHeader')
-
 var classicGameBtn = document.querySelector('#classicGameBtn')
 var difficultGameBtn = document.querySelector('#difficultGameBtn')
 var changeGameBtn = document.querySelector('#changeGameBtn')
 var choseFighter = document.querySelector('#choseFighter')
 var difficultLineBreak = document.querySelector('#difficultLineBreak')
-
-window.addEventListener('load', populateDynamicSides)
-classicGameBtn.addEventListener('click', updateGametypeClassic)
-difficultGameBtn.addEventListener('click', updateGametypeDifficult)
-leftColumn.addEventListener('click', game.resetBoard);
-
-// is this better than injecting that section's HTML and event bubbling?
 var rockImg = document.querySelector('#rockImg')
 var paperImg = document.querySelector('#paperImg')
 var scissorsImg = document.querySelector('#scissorsImg')
 var lizardImg = document.querySelector('#lizardImg')
 var alienImg = document.querySelector('#alienImg')
-rockImg.addEventListener('click', humanChoseRock)
-paperImg.addEventListener('click', humanChosePaper)
-scissorsImg.addEventListener('click', humanChoseScissors)
-lizardImg.addEventListener('click', humanChoseLizard)
-alienImg.addEventListener('click', humanChoseAlien)
 var rockImgDraw = document.querySelector('#rockImgDraw')
 var paperImgDraw = document.querySelector('#paperImgDraw')
 var scissorsImgDraw = document.querySelector('#scissorsImgDraw')
 var lizardImgDraw = document.querySelector('#lizardImgDraw')
 var alienImgDraw = document.querySelector('#alienImgDraw')
 
+window.addEventListener('load', populateDynamicSides)
+classicGameBtn.addEventListener('click', updateGametypeClassic)
+difficultGameBtn.addEventListener('click', updateGametypeDifficult)
+leftColumn.addEventListener('click', game.resetBoard);
+rockImg.addEventListener('click', humanChoseRock)
+paperImg.addEventListener('click', humanChosePaper)
+scissorsImg.addEventListener('click', humanChoseScissors)
+lizardImg.addEventListener('click', humanChoseLizard)
+alienImg.addEventListener('click', humanChoseAlien)
+
 function populateDynamicSides() {
   leftColumn.innerHTML = `
-    <figure alt="Emoji of a person">${game.players[0].emoji}</figure>
+    <figure alt="Emoji of a person for the player">${game.players[0].emoji}</figure>
     <aside>${game.players[0].name}</aside>
     <aside class="wins">Wins: ${game.players[0].wins}</aside>`
   rightColumn.innerHTML = `
-    <figure alt="Emoji of a computer">${game.players[1].emoji}</figure>
+    <figure alt="Emoji of a computer for the opponent">${game.players[1].emoji}</figure>
     <aside>${game.players[1].name}</aside>
     <aside class="wins">Wins: ${game.players[1].wins}</aside>`
 }
@@ -205,7 +199,6 @@ function clearAfterTimeout() {
     populateDynamicSides()
     showWhichGame()
   }, 2000)
-  // return timeout
 }
 
 function hideAllImages() {
@@ -230,26 +223,15 @@ function showWhichGame() {
   }
 }
 
-
-// can these two be combined
 function handleChangeGameClick(e) {
   if (e.target.id === "changeGameBtn") {
-    // clearTimeout(timeout)
     hideAllImages()
-    resetBoard()
+    hide(choseFighter)
+    show(classicGameBtn)
+    show(difficultGameBtn)
+    subHeader.innerText = `Choose your game!`
+    populateDynamicSides()
   }
-}
-
-function resetBoard() {
-  hide(choseFighter)
-  show(classicGameBtn)
-  show(difficultGameBtn)
-  subHeader.innerText = `Choose your game!`
-  populateDynamicSides()
-}
-
-function toggle(e) {
-  e.classList.toggle('hidden')
 }
 
 function hide(e) {
