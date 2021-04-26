@@ -202,6 +202,7 @@ function showWinner() {
 
 function clearAfterTimeout() {
   document.getElementById('changeGameBtn').disabled = true;
+  document.getElementById('choseFighter').style.pointerEvents = 'none'
   var timeout = setTimeout(function() {
     hideAllImages();
     showWhichGame();
@@ -216,6 +217,7 @@ function hideAllImages() {
 
 function showWhichGame() {
   document.getElementById('changeGameBtn').disabled = false;
+  document.getElementById('choseFighter').style.pointerEvents = 'auto'
   if (game.gameType === 'classic') {
     showClassicGame();
   } else {
