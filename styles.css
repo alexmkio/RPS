@@ -80,13 +80,9 @@ img {
 
 .change-game {
   text-transform: uppercase;
-  border: none;
   font-size: 1.2vw;
-  color: #FFFFFF;
   padding: 1vw;
-  background-color: #9D35D2;
   margin: 6vw 0 0 0;
-  cursor: pointer;
 }
 
 /* NOT TYPOGRAPHY */
@@ -99,12 +95,20 @@ aside {
 
 .game-selection {
   width: 19vw;
+  padding: 1vw 0;
+  margin: 1.5vw 0;
+}
+
+.button {
   border: none;
   color: #FFFFFF;
   background-color: #9D35D2;
-  padding: 1vw 0;
-  margin: 1.5vw 0;
   cursor: pointer;
+}
+
+.button:hover {
+  background-color: #FFFFFF;
+  color: #9D35D2;
 }
 
 .pointer {

@@ -32,7 +32,7 @@ var alienImgDraw = document.querySelector('#alienImgDraw')
 window.addEventListener('load', populateDynamicSides)
 classicGameBtn.addEventListener('click', updateGametypeClassic)
 difficultGameBtn.addEventListener('click', updateGametypeDifficult)
-leftColumn.addEventListener('click', game.resetBoard);
+changeGameBtn.addEventListener('click', game.resetBoard);
 rockImg.addEventListener('click', humanChoseRock)
 paperImg.addEventListener('click', humanChosePaper)
 scissorsImg.addEventListener('click', humanChoseScissors)
@@ -62,6 +62,7 @@ function updateGametypeDifficult() {
 }
 
 function showClassicGame() {
+  show(changeGameBtn)
   transitionToGame()
   show(choseFighter)
   imgShow(rockImg)
@@ -79,7 +80,8 @@ function transitionToGame() {
   hide(classicGameBtn)
   hide(difficultGameBtn)
   subHeader.innerText = `Choose your fighter!`
-  leftColumn.innerHTML += `<button class="change-game" id="changeGameBtn">Change Game?</button>`
+
+  // leftColumn.innerHTML += `<button class="change-game button" id="changeGameBtn">Change Game?</button>`
   assignComputerChoice()
 }
 
@@ -129,6 +131,7 @@ function humanChoseAlien() {
 }
 
 function showWinnerHeading() {
+  populateDynamicSides()
   imgHide(rockImg)
   imgHide(paperImg)
   imgHide(scissorsImg)
@@ -197,7 +200,6 @@ function clearAfterTimeout() {
   document.getElementById("changeGameBtn").disabled = true;
   var timeout = setTimeout(function() {
     hideAllImages()
-    populateDynamicSides()
     showWhichGame()
   }, 2000)
 }
@@ -216,6 +218,7 @@ function hideAllImages() {
 } 
 
 function showWhichGame() {
+  document.getElementById("changeGameBtn").disabled = false;
   if (game.gameType === 'classic') {
     showClassicGame()
   } else {
@@ -224,15 +227,13 @@ function showWhichGame() {
   }
 }
 
-function handleChangeGameClick(e) {
-  if (e.target.id === "changeGameBtn") {
-    hideAllImages()
-    hide(choseFighter)
-    show(classicGameBtn)
-    show(difficultGameBtn)
-    subHeader.innerText = `Choose your game!`
-    populateDynamicSides()
-  }
+function changeGame() {
+  hideAllImages()
+  hide(choseFighter)
+  show(classicGameBtn)
+  show(difficultGameBtn)
+  subHeader.innerText = `Choose your game!`
+  populateDynamicSides()
 }
 
 function show(e) {

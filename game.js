@@ -30,7 +30,7 @@ class Game {
     this.players[1].saveWinsToStorage()
     showWinnerHeading()
   }
-  resetBoard(e) {
-    handleChangeGameClick(e)
+  resetBoard() {
+    changeGame()
   }
 }
