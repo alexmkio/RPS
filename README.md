@@ -32,9 +32,7 @@ This application uses vanilla JavaScript, HTML, and CSS.
 I am unlikely to add any future functionality to this application, but here are some ideas for features that might improve it:
 
 * Mobile-first design breakpoints
-  * 
 * Dark mode
 * Utilize localStorage to allow storage of multiple players stats (as well as the stats of the corresponding computer player)
-  * At a minimum this would require a user to input their name before playing
 * Allow user to choose the emoji that represents them
 * Utilize a database to store user login credentials, emoji selections, and score
