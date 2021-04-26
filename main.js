@@ -79,7 +79,7 @@ function transitionToGame() {
   hide(classicGameBtn)
   hide(difficultGameBtn)
   subHeader.innerText = `Choose your fighter!`
-  leftColumn.innerHTML += `<button class="change-game" id="changeGameBtn">Change Game?</button>`
+  leftColumn.innerHTML += `<button class="change-game button" id="changeGameBtn">Change Game?</button>`
   assignComputerChoice()
 }
 
