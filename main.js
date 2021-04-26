@@ -64,15 +64,15 @@ function updateGametypeDifficult() {
 function showClassicGame() {
   transitionToGame()
   show(choseFighter)
-  show(rockImg)
-  show(paperImg)
-  show(scissorsImg)
+  imgShow(rockImg)
+  imgShow(paperImg)
+  imgShow(scissorsImg)
 }
 
 function showDifficultGame() {
   show(difficultLineBreak)
-  show(lizardImg)
-  show(alienImg)
+  imgShow(lizardImg)
+  imgShow(alienImg)
 }
 
 function transitionToGame() {
@@ -129,12 +129,12 @@ function humanChoseAlien() {
 }
 
 function showWinnerHeading() {
-  hide(rockImg)
-  hide(paperImg)
-  hide(scissorsImg)
+  imgHide(rockImg)
+  imgHide(paperImg)
+  imgHide(scissorsImg)
   hide(difficultLineBreak)
-  hide(lizardImg)
-  hide(alienImg)
+  imgHide(lizardImg)
+  imgHide(alienImg)
   if (game.winner === 'draw') {
     subHeader.innerText = `😭 It's a draw! 😭`
     showDraw()
@@ -203,16 +203,16 @@ function clearAfterTimeout() {
 }
 
 function hideAllImages() {
-  hide(rockImg)
-  hide(paperImg)
-  hide(scissorsImg)
-  hide(lizardImg)
-  hide(alienImg)
-  hide(rockImgDraw)
-  hide(paperImgDraw)
-  hide(scissorsImgDraw)
-  hide(lizardImgDraw)
-  hide(alienImgDraw)
+  imgHide(rockImg)
+  imgHide(paperImg)
+  imgHide(scissorsImg)
+  imgHide(lizardImg)
+  imgHide(alienImg)
+  imgHide(rockImgDraw)
+  imgHide(paperImgDraw)
+  imgHide(scissorsImgDraw)
+  imgHide(lizardImgDraw)
+  imgHide(alienImgDraw)
 } 
 
 function showWhichGame() {
@@ -235,12 +235,22 @@ function handleChangeGameClick(e) {
   }
 }
 
+function show(e) {
+  e.classList.remove('hidden')
+}
+
 function hide(e) {
   e.classList.add('hidden')
 }
 
-function show(e) {
+function imgShow(e) {
   e.classList.remove('hidden')
+  e.classList.add('pointer')
+}
+
+function imgHide(e) {
+  e.classList.add('hidden')
+  e.classList.remove('pointer')
 }
 
 function getRandomInt(max) {
