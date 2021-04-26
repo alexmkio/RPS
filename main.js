@@ -1,43 +1,46 @@
-var game = new Game()
+var game = new Game();
+
 function instantiatePlayers() {
   var human = new Player({ name: 'Human', emoji: '👩🏻' });
   var computer = new Player({ name: 'Computer', emoji: '💻' });
-  game.players.push(human)
-  game.players.push(computer)
-}
-instantiatePlayers()
+  game.players.push(human);
+  game.players.push(computer);
+};
 
-game.players[0].retrieveWinsFromStorage()
-game.players[1].retrieveWinsFromStorage()
+instantiatePlayers();
 
-var leftColumn = document.querySelector('#leftColumn')
-var rightColumn = document.querySelector('#rightColumn')
-var subHeader = document.querySelector('#subHeader')
-var classicGameBtn = document.querySelector('#classicGameBtn')
-var difficultGameBtn = document.querySelector('#difficultGameBtn')
-var changeGameBtn = document.querySelector('#changeGameBtn')
-var choseFighter = document.querySelector('#choseFighter')
-var difficultLineBreak = document.querySelector('#difficultLineBreak')
-var rockImg = document.querySelector('#rockImg')
-var paperImg = document.querySelector('#paperImg')
-var scissorsImg = document.querySelector('#scissorsImg')
-var lizardImg = document.querySelector('#lizardImg')
-var alienImg = document.querySelector('#alienImg')
-var rockImgDraw = document.querySelector('#rockImgDraw')
-var paperImgDraw = document.querySelector('#paperImgDraw')
-var scissorsImgDraw = document.querySelector('#scissorsImgDraw')
-var lizardImgDraw = document.querySelector('#lizardImgDraw')
-var alienImgDraw = document.querySelector('#alienImgDraw')
+game.players[0].retrieveWinsFromStorage();
+game.players[1].retrieveWinsFromStorage();
 
-window.addEventListener('load', populateDynamicSides)
-classicGameBtn.addEventListener('click', updateGametypeClassic)
-difficultGameBtn.addEventListener('click', updateGametypeDifficult)
+var leftColumn = document.querySelector('#leftColumn');
+var rightColumn = document.querySelector('#rightColumn');
+var subHeader = document.querySelector('#subHeader');
+var classicGameBtn = document.querySelector('#classicGameBtn');
+var difficultGameBtn = document.querySelector('#difficultGameBtn');
+var changeGameBtn = document.querySelector('#changeGameBtn');
+var choseFighter = document.querySelector('#choseFighter');
+var difficultLineBreak = document.querySelector('#difficultLineBreak');
+var rockImg = document.querySelector('#rockImg');
+var paperImg = document.querySelector('#paperImg');
+var scissorsImg = document.querySelector('#scissorsImg');
+var lizardImg = document.querySelector('#lizardImg');
+var alienImg = document.querySelector('#alienImg');
+var rockImgDraw = document.querySelector('#rockImgDraw');
+var paperImgDraw = document.querySelector('#paperImgDraw');
+var scissorsImgDraw = document.querySelector('#scissorsImgDraw');
+var lizardImgDraw = document.querySelector('#lizardImgDraw');
+var alienImgDraw = document.querySelector('#alienImgDraw');
+var allImages = document.querySelectorAll('img');
+
+window.addEventListener('load', populateDynamicSides);
+classicGameBtn.addEventListener('click', updateGametypeClassic);
+difficultGameBtn.addEventListener('click', updateGametypeDifficult);
 changeGameBtn.addEventListener('click', game.resetBoard);
-rockImg.addEventListener('click', humanChoseRock)
-paperImg.addEventListener('click', humanChosePaper)
-scissorsImg.addEventListener('click', humanChoseScissors)
-lizardImg.addEventListener('click', humanChoseLizard)
-alienImg.addEventListener('click', humanChoseAlien)
+rockImg.addEventListener('click', humanChoseRock);
+paperImg.addEventListener('click', humanChosePaper);
+scissorsImg.addEventListener('click', humanChoseScissors);
+lizardImg.addEventListener('click', humanChoseLizard);
+alienImg.addEventListener('click', humanChoseAlien);
 
 function populateDynamicSides() {
   leftColumn.innerHTML = `
@@ -48,42 +51,40 @@ function populateDynamicSides() {
     <figure alt="Emoji of a computer for the opponent">${game.players[1].emoji}</figure>
     <aside>${game.players[1].name}</aside>
     <aside class="wins">Wins: ${game.players[1].wins}</aside>`
-}
+};
 
 function updateGametypeClassic() {
-  game.gameType = 'classic'
-  showClassicGame()
-}
+  game.gameType = 'classic';
+  showClassicGame();
+};
 
 function updateGametypeDifficult() {
-  game.gameType = 'difficult'
-  showClassicGame()
-  showDifficultGame()
-}
+  game.gameType = 'difficult';
+  showClassicGame();
+  showDifficultGame();
+};
 
 function showClassicGame() {
-  show(changeGameBtn)
-  transitionToGame()
-  show(choseFighter)
-  imgShow(rockImg)
-  imgShow(paperImg)
-  imgShow(scissorsImg)
-}
+  show(changeGameBtn);
+  transitionToGame();
+  show(choseFighter);
+  imgShow(rockImg);
+  imgShow(paperImg);
+  imgShow(scissorsImg);
+};
 
 function showDifficultGame() {
-  show(difficultLineBreak)
-  imgShow(lizardImg)
-  imgShow(alienImg)
-}
+  show(difficultLineBreak);
+  imgShow(lizardImg);
+  imgShow(alienImg);
+};
 
 function transitionToGame() {
-  hide(classicGameBtn)
-  hide(difficultGameBtn)
-  subHeader.innerText = `Choose your fighter!`
-
-  // leftColumn.innerHTML += `<button class="change-game button" id="changeGameBtn">Change Game?</button>`
-  assignComputerChoice()
-}
+  hide(classicGameBtn);
+  hide(difficultGameBtn);
+  subHeader.innerText = `Choose your fighter!`;
+  assignComputerChoice();
+};
 
 function assignComputerChoice() {
   var computerChoice;
@@ -91,7 +92,8 @@ function assignComputerChoice() {
     computerChoice = getRandomInt(4);
   } else {
     computerChoice = getRandomInt(6);
-  }
+  };
+  
   if (computerChoice === 1) {
     game.players[1].choice = 'Rock';
   } else if (computerChoice === 2) {
@@ -100,162 +102,159 @@ function assignComputerChoice() {
     game.players[1].choice = 'Scissors';
   } else if (computerChoice === 4) {
     game.players[1].choice = 'Lizard';
-  } else if (computerChoice === 5) {
+  } else {
     game.players[1].choice = 'Alien';
-  }
-}
+  };
+};
 
 function humanChoseRock() {
   game.players[0].choice = 'Rock';
-  game.whoWon()
-}
+  game.whoWon();
+};
 
 function humanChosePaper() {
   game.players[0].choice = 'Paper';
-  game.whoWon()
-}
+  game.whoWon();
+};
 
 function humanChoseScissors() {
   game.players[0].choice = 'Scissors';
-  game.whoWon()
-}
+  game.whoWon();
+};
 
 function humanChoseLizard() {
   game.players[0].choice = 'Lizard';
-  game.whoWon()
-}
+  game.whoWon();
+};
 
 function humanChoseAlien() {
   game.players[0].choice = 'Alien';
-  game.whoWon()
-}
+  game.whoWon();
+};
 
 function showWinnerHeading() {
-  populateDynamicSides()
-  imgHide(rockImg)
-  imgHide(paperImg)
-  imgHide(scissorsImg)
-  hide(difficultLineBreak)
-  imgHide(lizardImg)
-  imgHide(alienImg)
+  populateDynamicSides();
+  imgHide(rockImg);
+  imgHide(paperImg);
+  imgHide(scissorsImg);
+  hide(difficultLineBreak);
+  imgHide(lizardImg);
+  imgHide(alienImg);
+  
   if (game.winner === 'draw') {
-    subHeader.innerText = `😭 It's a draw! 😭`
-    showDraw()
+    subHeader.innerText = `😭 It's a draw! 😭`;
+    showDraw();
   } else if (game.winner === game.players[0].name) {
-    subHeader.innerText = `${game.players[0].emoji} ${game.players[0].name} won this round! ${game.players[0].emoji}`
-    showWinner()
+    subHeader.innerText = `${game.players[0].emoji} ${game.players[0].name} won this round! ${game.players[0].emoji}`;
+    showWinner();
   } else {
-    subHeader.innerText = `${game.players[1].emoji} ${game.players[1].name} won this round! ${game.players[1].emoji}`
-    showWinner()
-  }
-}  
+    subHeader.innerText = `${game.players[1].emoji} ${game.players[1].name} won this round! ${game.players[1].emoji}`;
+    showWinner();
+  };
+};
 
 function showDraw() {
   if (game.players[0].choice === 'Rock') {
-    show(rockImg)
-    show(rockImgDraw)
+    show(rockImg);
+    show(rockImgDraw);
   } else if (game.players[0].choice === 'Paper') {
-    show(paperImg)
-    show(paperImgDraw)
+    show(paperImg);
+    show(paperImgDraw);
   } else if (game.players[0].choice === 'Scissors') {
-    show(scissorsImg)
-    show(scissorsImgDraw)
+    show(scissorsImg);
+    show(scissorsImgDraw);
   } else if (game.players[0].choice === 'Lizard') {
-    show(lizardImg)
-    show(lizardImgDraw)
+    show(lizardImg);
+    show(lizardImgDraw);
   } else {
-    show(alienImg)
-    show(alienImgDraw)
-  }
-  clearAfterTimeout()
-}
+    show(alienImg);
+    show(alienImgDraw);
+  };
+  clearAfterTimeout();
+};
 
 function showWinner() {
   if (game.players[0].choice === 'Rock') {
-    show(rockImg)
+    show(rockImg);
   } else if (game.players[0].choice === 'Paper') {
-    show(paperImg)
+    show(paperImg);
   } else if (game.players[0].choice === 'Scissors') {
-    show(scissorsImg)
+    show(scissorsImg);
   } else if (game.players[0].choice === 'Lizard') {
-    show(lizardImg)
-  } else if (game.players[0].choice === 'Alien') {
-    show(alienImg)
-  }
+    show(lizardImg);
+  } else {
+    show(alienImg);
+  };
+  
   if (game.players[1].choice === 'Rock') {
-    show(rockImgDraw)
+    show(rockImgDraw);
   } else if (game.players[1].choice === 'Paper') {
-    show(paperImgDraw)
+    show(paperImgDraw);
   } else if (game.players[1].choice === 'Scissors') {
-    show(scissorsImgDraw)
+    show(scissorsImgDraw);
   } else if (game.players[1].choice === 'Lizard') {
-    show(lizardImgDraw)
-  } else if (game.players[1].choice === 'Alien') {
-    show(alienImgDraw)
-  }
-  clearAfterTimeout()
-}
+    show(lizardImgDraw);
+  } else {
+    show(alienImgDraw);
+  };
+  clearAfterTimeout();
+};
 
 function clearAfterTimeout() {
-  document.getElementById("changeGameBtn").disabled = true;
+  document.getElementById('changeGameBtn').disabled = true;
+  document.getElementById('choseFighter').style.pointerEvents = 'none'
   var timeout = setTimeout(function() {
-    hideAllImages()
-    showWhichGame()
-  }, 2000)
-}
+    hideAllImages();
+    showWhichGame();
+  }, 2000);
+};
 
 function hideAllImages() {
-  imgHide(rockImg)
-  imgHide(paperImg)
-  imgHide(scissorsImg)
-  imgHide(lizardImg)
-  imgHide(alienImg)
-  imgHide(rockImgDraw)
-  imgHide(paperImgDraw)
-  imgHide(scissorsImgDraw)
-  imgHide(lizardImgDraw)
-  imgHide(alienImgDraw)
-} 
+  for (var i = 0; i < allImages.length; i++) {
+		imgHide(allImages[i]);
+	};
+};
 
 function showWhichGame() {
-  document.getElementById("changeGameBtn").disabled = false;
+  document.getElementById('changeGameBtn').disabled = false;
+  document.getElementById('choseFighter').style.pointerEvents = 'auto'
   if (game.gameType === 'classic') {
-    showClassicGame()
+    showClassicGame();
   } else {
-    showClassicGame()
-    showDifficultGame()
-  }
-}
+    showClassicGame();
+    showDifficultGame();
+  };
+};
 
 function changeGame() {
-  hideAllImages()
-  hide(choseFighter)
-  show(classicGameBtn)
-  show(difficultGameBtn)
-  subHeader.innerText = `Choose your game!`
-  populateDynamicSides()
-}
+  hideAllImages();
+  hide(choseFighter);
+  show(classicGameBtn);
+  show(difficultGameBtn);
+  subHeader.innerText = `Choose your game!`;
+  populateDynamicSides();
+};
 
 function show(e) {
-  e.classList.remove('hidden')
-}
+  e.classList.remove('hidden');
+};
 
 function hide(e) {
-  e.classList.add('hidden')
-}
+  e.classList.add('hidden');
+};
 
 function imgShow(e) {
-  e.classList.remove('hidden')
-  e.classList.add('pointer')
-}
+  e.classList.remove('hidden');
+  e.classList.add('pointer');
+};
 
 function imgHide(e) {
-  e.classList.add('hidden')
-  e.classList.remove('pointer')
-}
+  e.classList.add('hidden');
+  e.classList.remove('pointer');
+};
 
 function getRandomInt(max) {
   min = Math.ceil(1);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min);
-}
+};

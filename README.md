@@ -14,6 +14,7 @@ The project spec can be found [here](https://frontend.turing.edu/projects/module
 * After choosing the game type the user is presented with the choice of fighters they have to shoot with.
 * The user is also presented with a change game button in the left column. Clicking this button will take them back to the landing page.
   * The [demonstration](https://www.youtube.com/watch?v=a2M5h1B9DQQ) has this occurring only after the first game is completed but I chose to display it here because I think it makes for a better user experience. #FOMO
+* I purposefully did not include the player emoji on click of fighter as is displayed in the [demonstration of the game](https://www.youtube.com/watch?v=a2M5h1B9DQQ). I did not appreciate the look.
 
 ![Screenshot of Rock, Paper, Scissors who won page](https://user-images.githubusercontent.com/12686237/116107452-0b915d00-a681-11eb-83a9-d2b00df40f4c.png)
 * The user is presented with a message regarding who won (or if it was a draw), each player's chosen fighters, and can see that the winner's score has increased by 1.
