@@ -5,7 +5,7 @@ function instantiatePlayers() {
   var computer = new Player({ name: 'Computer', emoji: '💻' });
   game.players.push(human);
   game.players.push(computer);
-}
+};
 
 instantiatePlayers();
 
@@ -30,6 +30,8 @@ var paperImgDraw = document.querySelector('#paperImgDraw');
 var scissorsImgDraw = document.querySelector('#scissorsImgDraw');
 var lizardImgDraw = document.querySelector('#lizardImgDraw');
 var alienImgDraw = document.querySelector('#alienImgDraw');
+
+var allImages = document.querySelectorAll('img');
 
 window.addEventListener('load', populateDynamicSides);
 classicGameBtn.addEventListener('click', updateGametypeClassic);
@@ -101,7 +103,7 @@ function assignComputerChoice() {
     game.players[1].choice = 'Scissors';
   } else if (computerChoice === 4) {
     game.players[1].choice = 'Lizard';
-  } else if (computerChoice === 5) {
+  } else {
     game.players[1].choice = 'Alien';
   };
 };
@@ -168,7 +170,7 @@ function showDraw() {
   } else {
     show(alienImg);
     show(alienImgDraw);
-  }
+  };
   clearAfterTimeout();
 };
 
@@ -181,7 +183,7 @@ function showWinner() {
     show(scissorsImg);
   } else if (game.players[0].choice === 'Lizard') {
     show(lizardImg);
-  } else if (game.players[0].choice === 'Alien') {
+  } else {
     show(alienImg);
   };
   
@@ -193,7 +195,7 @@ function showWinner() {
     show(scissorsImgDraw);
   } else if (game.players[1].choice === 'Lizard') {
     show(lizardImgDraw);
-  } else if (game.players[1].choice === 'Alien') {
+  } else {
     show(alienImgDraw);
   };
   clearAfterTimeout();
@@ -208,16 +210,9 @@ function clearAfterTimeout() {
 };
 
 function hideAllImages() {
-  imgHide(rockImg);
-  imgHide(paperImg);
-  imgHide(scissorsImg);
-  imgHide(lizardImg);
-  imgHide(alienImg);
-  imgHide(rockImgDraw);
-  imgHide(paperImgDraw);
-  imgHide(scissorsImgDraw);
-  imgHide(lizardImgDraw);
-  imgHide(alienImgDraw);
+  for (var i = 0; i < allImages.length; i++) {
+		imgHide(allImages[i]);
+	};
 };
 
 function showWhichGame() {
