@@ -85,7 +85,7 @@ function transitionToGame() {
 
 function assignComputerChoice() {
   var computerChoice;
-  if (game.gametype === 'classic') {
+  if (game.gameType === 'classic') {
     computerChoice = getRandomInt(4);
   } else {
     computerChoice = getRandomInt(6);
