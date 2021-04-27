@@ -140,22 +140,193 @@ img {
   display: none;
 }
 
+/* PHONE IN LANDSCAPE */
 
+@media (min-aspect-ratio: 13/8) and (orientation: landscape) {
 
+  /* BASE */
 
+  .mobile { 
+    display: none;
+  }
+  
+  .landscape {
+    display: block;
+  }
 
+  /* LAYOUT */
 
+  .landscape {
+    display: flex;
+    justify-content: space-between;
+    min-height: 100%;
+  }
 
+  .middle {
+    justify-content: flex-start;
+  }
 
+  /* TYPOGRAPHY */
 
+  h1 {
+    font-size: 5vw;
+  }
 
+  h2 {
+    font-size: 3vw;
+    margin-bottom: 2vw;
+  }
 
+  h3 {
+    font-size: 2vw;
+  }
 
+  p {
+    font-size: 1.8vw;
+  }
 
+  figure {
+    font-size: 7vw;
+    margin: 1.5rem 0 0 0;
+  }
 
+  .wins {
+    font-size: 2.5vw;
+  }
 
+  .change-game {
+    font-size: 1.2vw;
+    margin: 6vw 0 0 0;
+    padding: 1vw;
+  }
 
-@media (orientation: landscape) {
+  aside {
+    font-size: 2.5vw;  
+  }
+
+  /* MODULES */
+
+  img {
+    width: 14vw;
+  }
+
+  .game-selection {
+    margin: 0;
+    width: 30vw;
+  }
+}
+
+/* TABLETS IN PORTRAIT */
+
+@media (min-aspect-ratio: 2/3) and (orientation: portrait) {
+  
+  /* LAYOUT */
+  
+  .mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .top {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    justify-content: center;
+  }
+  
+  .side {
+    background-color: #C36FEC;
+  }
+  
+  .bottom {
+    align-items: center;
+    display: flex;
+    height: 20vh;
+    justify-content: space-between;
+    padding: 0 7vw;
+  }
+  
+  .middle {
+    align-items: center;
+    background-color: #BB56ED;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+  }
+  
+  /* TYPOGRAPHY */
+  
+  html {
+    color: #FFFFFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: calc(1em + 1vw);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 6.5vw;
+    font-weight: 800;
+  }
+  
+  h2 {
+    font-size: 4vw;
+    font-weight: 400;
+  }
+  
+  h3 {
+    font-size: 3.5vw;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  
+  p {
+    font-size: 3vw;
+    font-weight: 300;
+    line-height: 1.2em;
+    margin: 1em 0 1.2em 0;
+  }
+  
+  figure {
+    font-size: 8vw;
+  }
+  
+  .wins {
+    font-size: 3vw;
+    font-weight: 300;
+    margin: 1.5vw 0 0 0;
+  }
+  
+  .change-game {
+    font-size: 2.5vw;
+    padding: 2.5vw;
+    text-transform: uppercase;
+  }
+  
+  aside {
+    font-size: 3.5vw;
+    font-weight: 400;
+    padding: 0 3.8vw;   
+  }
+  
+  /* MODULES */
+  
+  img {
+    width: 23vw;
+  }
+  
+  .game-selection {
+    margin: 2vw 0;
+    padding: 2vw 0;
+    width: 50vw;
+  }
+}
+
+/* DESKTOP */
+
+@media (max-aspect-ratio: 3/2) and (orientation: landscape) {
 
   /* BASE */
 
