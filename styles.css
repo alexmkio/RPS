@@ -4,25 +4,43 @@
   margin: 0;
 }
 
-html {
+html, body, .mobile {
   height: 100%;
 }
 
 /* LAYOUT */
 
-body {
+.mobile {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  min-height: 100%;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .side {
   background-color: #C36FEC;
+  height: 17vh;
+}
+
+.bottom {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
 }
 
 .middle {
   background-color: #BB56ED;
-  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* TYPOGRAPHY */
@@ -35,51 +53,46 @@ html {
 }
 
 h1 {
-  font-size: 5vw;
+  font-size: 7vw;
   font-weight: 800;
-  margin: 0.7em 0 0 0;
 }
 
 h2 {
-  font-size: 2vw;
+  font-size: 4.5vw;
   font-weight: 400;
-  margin-bottom: 5vw;
 }
 
 h3 {
-  font-size: 1.8vw;
+  font-size: 4.5vw;
   font-weight: 400;
-  margin: 0;
   text-transform: uppercase;
 }
 
 p {
-  font-size: 1.5vw;
+  font-size: 4vw;
   font-weight: 300;
   line-height: 1.2em;
   margin: 1em 0 1.2em 0;
 }
 
 figure {
-  font-size: 3vw;
-  margin: 1.5rem 0 0 0;
+  font-size: 10vw;
 }
 
 .wins {
-  font-size: 1.8vw;
+  font-size: 3vw;
   font-weight: 300;
   margin: 1.5vw 0 0 0;
 }
 
 .change-game {
-  font-size: 1.2vw;
-  margin: 6vw 0 0 0;
-  padding: 1vw;
+  font-size: 2.5vw;
+  padding: 2.5vw;
   text-transform: uppercase;
 }
 
 aside {
-  font-size: 2vw;
+  font-size: 3.5vw;
   font-weight: 400;
   padding: 0 3.8vw;   
 }
@@ -87,13 +100,13 @@ aside {
 /* MODULES */
 
 img {
-  width: 14vw;
+  width: 30vw;
 }
 
 .game-selection {
-  margin: 1.5vw 0;
+  margin: 5vw 0;
   padding: 1vw 0;
-  width: 19vw;
+  width: 60vw;
 }
 
 .button {
@@ -116,4 +129,139 @@ img {
 
 .hidden {
   display: none;
+}
+
+@media screen and (min-width: 600px) and (orientation: landscape) {
+  body {
+    display: flex
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 100%;
+  }
+}
+
+@media (orientation: landscape) {
+  .mobile { display: none; }
+  .landscape { display: block; }
+  /* BASE */
+
+  * {
+    margin: 0;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  /* LAYOUT */
+
+  body {
+    display: flex
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 100%;
+  }
+
+  .side {
+    background-color: #C36FEC;
+  }
+
+  .middle {
+    background-color: #BB56ED;
+    width: 100%;
+  }
+
+  /* TYPOGRAPHY */
+
+  html {
+    color: #FFFFFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: calc(1em + 1vw);
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 5vw;
+    font-weight: 800;
+    margin: 0.7em 0 0 0;
+  }
+
+  h2 {
+    font-size: 2vw;
+    font-weight: 400;
+    margin-bottom: 5vw;
+  }
+
+  h3 {
+    font-size: 1.8vw;
+    font-weight: 400;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1.5vw;
+    font-weight: 300;
+    line-height: 1.2em;
+    margin: 1em 0 1.2em 0;
+  }
+
+  figure {
+    font-size: 3vw;
+    margin: 1.5rem 0 0 0;
+  }
+
+  .wins {
+    font-size: 1.8vw;
+    font-weight: 300;
+    margin: 1.5vw 0 0 0;
+  }
+
+  .change-game {
+    font-size: 1.2vw;
+    margin: 6vw 0 0 0;
+    padding: 1vw;
+    text-transform: uppercase;
+  }
+
+  aside {
+    font-size: 2vw;
+    font-weight: 400;
+    padding: 0 3.8vw;   
+  }
+
+  /* MODULES */
+
+  img {
+    width: 14vw;
+  }
+
+  .game-selection {
+    margin: 1.5vw 0;
+    padding: 1vw 0;
+    width: 19vw;
+  }
+
+  .button {
+    background-color: #9D35D2;
+    border: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  /* STATE */
+
+  .button:hover {
+    background-color: #FFFFFF;
+    color: #9D35D2;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  .hidden {
+    display: none;
+  }
+
 }
