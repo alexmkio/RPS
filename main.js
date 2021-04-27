@@ -19,6 +19,7 @@ var classicGameBtnMobile = document.querySelector('#classicGameBtnMobile');
 var difficultGameBtnMobile = document.querySelector('#difficultGameBtnMobile');
 var changeGameBtnMobile = document.querySelector('#changeGameBtnMobile');
 var choseFighterMobile = document.querySelector('#choseFighterMobile');
+var mobileOnlyBreak = document.querySelector('#mobileOnlyBreak');
 var difficultLineBreakMobile = document.querySelector('#difficultLineBreakMobile');
 var rockImgMobile = document.querySelector('#rockImgMobile');
 var paperImgMobile = document.querySelector('#paperImgMobile');
@@ -111,6 +112,7 @@ function showClassicGame() {
   imgShow(rockImg);
   imgShow(paperImgMobile);
   imgShow(paperImg);
+  show(mobileOnlyBreak);
   imgShow(scissorsImgMobile);
   imgShow(scissorsImg);
 };
@@ -188,6 +190,7 @@ function showWinnerHeading() {
   imgHide(paperImg);
   imgHide(scissorsImgMobile);
   imgHide(scissorsImg);
+  hide(mobileOnlyBreak);
   hide(difficultLineBreakMobile);
   hide(difficultLineBreak);
   imgHide(lizardImgMobile);
@@ -309,6 +312,8 @@ function showWhichGame() {
 
 function changeGame() {
   hideAllImages();
+  hide(changeGameBtnMobile);
+  hide(changeGameBtn);
   hide(choseFighterMobile);
   hide(choseFighter);
   show(classicGameBtnMobile);
