@@ -2,55 +2,105 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <title>Rock Paper Scissors</title>
   </head>
   <body id="wholeScreen">
-    <section class="side">
-      <section id="leftColumn"></section>
-      <section>
-        <button class="change-game button hidden" id="changeGameBtn">Change Game?</button>
+    <section class="mobile">
+      <section class="top side">
+        <h1>Rock, Paper, Scissors</h1>
+        <h2 id="subHeaderMobile">Choose your game!</h2>
+      </section>
+      <section class="middle">
+        <button class="game-selection button" id="classicGameBtnMobile">
+          <h3>🪨 CLASSIC ✂️</h3>
+          <p>
+            rock > scissors<br>
+            paper > rock<br>
+            scissors > paper
+          </p>
+        </button><br>
+        <button class="game-selection button" id="difficultGameBtnMobile">
+          <h3>🦎 DIFFICULT 👽</h3>
+          <p>
+            rock > scissors & lizard<br>
+            paper > rock & alien<br>
+            scissors > paper & lizard<br>
+            lizard > paper & alien<br>
+            alien > scissors & rock
+          </p>
+        </button>
+        <section id="choseFighterMobile" class="hidden">
+          <img src="./assets/happy-rocks.png" alt="Cartoon image of a rock" id="rockImgMobile" class="hidden">
+          <img src="./assets/happy-paper.png" alt="Cartoon image of paper" id="paperImgMobile" class="hidden"><br id="mobileOnlyBreak" class="hidden">
+          <img src="./assets/happy-scissors.png" alt="Cartoon image of scissors" id="scissorsImgMobile" class="hidden">
+          <br id="difficultLineBreakMobile" class="hidden">
+          <img src="./assets/lizard.png" alt="Cartoon image of a lizard" id="lizardImgMobile" class="hidden">
+          <img src="./assets/happy-alien.png" alt="Cartoon image of an alien" id="alienImgMobile" class="hidden">
+          <img src="./assets/happy-rocks.png" alt="Cartoon image of a rock" id="rockImgDrawMobile" class="hidden">
+          <img src="./assets/happy-paper.png" alt="Cartoon image of paper" id="paperImgDrawMobile" class="hidden">
+          <img src="./assets/happy-scissors.png" alt="Cartoon image of scissors" id="scissorsImgDrawMobile" class="hidden">
+          <img src="./assets/lizard.png" alt="Cartoon image of a lizard" id="lizardImgDrawMobile" class="hidden">
+          <img src="./assets/happy-alien.png" alt="Cartoon image of an alien" id="alienImgDrawMobile" class="hidden">
+        </section>
+      </section>
+      <section class="bottom side">
+        <section id="leftBottom" class="statMargin"></section>
+        <section>
+          <button class="change-game button hidden" id="changeGameBtnMobile">Change Game?</button>
+        </section>
+        <section id="rightBottom"></section>
       </section>
     </section>
-    <section class="middle">
-      <h1>Rock, Paper, Scissors</h1>
-      <h2 id="subHeader">Choose your game!</h2>
-      <button class="game-selection button" id="classicGameBtn">
-        <h3>🪨 CLASSIC ✂️</h3>
-        <p>
-          rock > scissors<br>
-          paper > rock<br>
-          scissors > paper
-        </p>
-      </button><br>
-      <button class="game-selection button" id="difficultGameBtn">
-        <h3>🦎 DIFFICULT 👽</h3>
-        <p>
-          rock > scissors & lizard<br>
-          paper > rock & alien<br>
-          scissors > paper & lizard<br>
-          lizard > paper & alien<br>
-          alien > scissors & rock
-        </p>
-      </button>
-      <section id="choseFighter" class="hidden">
-        <img src="./assets/happy-rocks.png" alt="Cartoon image of a rock" id="rockImg" class="hidden">
-        <img src="./assets/happy-paper.png" alt="Cartoon image of paper" id="paperImg" class="hidden">
-        <img src="./assets/happy-scissors.png" alt="Cartoon image of scissors" id="scissorsImg" class="hidden">
-        <br id="difficultLineBreak" class="hidden">
-        <img src="./assets/lizard.png" alt="Cartoon image of a lizard" id="lizardImg" class="hidden">
-        <img src="./assets/happy-alien.png" alt="Cartoon image of an alien" id="alienImg" class="hidden">
-        <img src="./assets/happy-rocks.png" alt="Cartoon image of a rock" id="rockImgDraw" class="hidden">
-        <img src="./assets/happy-paper.png" alt="Cartoon image of paper" id="paperImgDraw" class="hidden">
-        <img src="./assets/happy-scissors.png" alt="Cartoon image of scissors" id="scissorsImgDraw" class="hidden">
-        <img src="./assets/lizard.png" alt="Cartoon image of a lizard" id="lizardImgDraw" class="hidden">
-        <img src="./assets/happy-alien.png" alt="Cartoon image of an alien" id="alienImgDraw" class="hidden">
+
+
+    <section class="landscape">
+      <section class="side">
+        <section id="leftColumn"></section>
+        <section>
+          <button class="change-game button hidden" id="changeGameBtn">Change Game?</button>
+        </section>
       </section>
+      <section class="middle">
+        <h1>Rock, Paper, Scissors</h1>
+        <h2 id="subHeader">Choose your game!</h2>
+        <button class="game-selection button" id="classicGameBtn">
+          <h3>🪨 CLASSIC ✂️</h3>
+          <p>
+            rock > scissors<br>
+            paper > rock<br>
+            scissors > paper
+          </p>
+        </button><br>
+        <button class="game-selection button" id="difficultGameBtn">
+          <h3>🦎 DIFFICULT 👽</h3>
+          <p>
+            rock > scissors & lizard<br>
+            paper > rock & alien<br>
+            scissors > paper & lizard<br>
+            lizard > paper & alien<br>
+            alien > scissors & rock
+          </p>
+        </button>
+        <section id="choseFighter" class="hidden">
+          <img src="./assets/happy-rocks.png" alt="Cartoon image of a rock" id="rockImg" class="hidden">
+          <img src="./assets/happy-paper.png" alt="Cartoon image of paper" id="paperImg" class="hidden">
+          <img src="./assets/happy-scissors.png" alt="Cartoon image of scissors" id="scissorsImg" class="hidden">
+          <br id="difficultLineBreak" class="hidden">
+          <img src="./assets/lizard.png" alt="Cartoon image of a lizard" id="lizardImg" class="hidden">
+          <img src="./assets/happy-alien.png" alt="Cartoon image of an alien" id="alienImg" class="hidden">
+          <img src="./assets/happy-rocks.png" alt="Cartoon image of a rock" id="rockImgDraw" class="hidden">
+          <img src="./assets/happy-paper.png" alt="Cartoon image of paper" id="paperImgDraw" class="hidden">
+          <img src="./assets/happy-scissors.png" alt="Cartoon image of scissors" id="scissorsImgDraw" class="hidden">
+          <img src="./assets/lizard.png" alt="Cartoon image of a lizard" id="lizardImgDraw" class="hidden">
+          <img src="./assets/happy-alien.png" alt="Cartoon image of an alien" id="alienImgDraw" class="hidden">
+        </section>
+      </section>
+      <section class="side" id="rightColumn"></section>
     </section>
-    <section class="side" id="rightColumn"></section>
     <script src="./game.js"></script>
     <script src="./player.js"></script>
     <script src="./main.js"></script>
