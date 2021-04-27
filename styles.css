@@ -24,11 +24,11 @@ html, body, .mobile {
 }
 
 .top {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 20vh;
   justify-content: center;
-  height: 17vh;
 }
 
 .side {
@@ -38,16 +38,17 @@ html, body, .mobile {
 .bottom {
   align-items: center;
   display: flex;
-  justify-content: space-around;
-  height: 17vh;
+  height: 20vh;
+  justify-content: space-between;
+  padding: 0 7vw;
 }
 
 .middle {
+  align-items: center;
   background-color: #BB56ED;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  flex-grow: 1;
   justify-content: center;
 }
 
@@ -139,79 +140,94 @@ img {
   display: none;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (orientation: landscape) {
 
   /* BASE */
 
-  .mobile { display: none; }
+  .mobile { 
+    display: none;
+  }
   
-  .landscape { display: block; }
+  .landscape {
+    display: block;
+  }
 
-/* LAYOUT */
+  /* LAYOUT */
 
-.landscape {
-  display: flex;
-  justify-content: space-between;
-  min-height: 100%;
-}
+  .landscape {
+    display: flex;
+    justify-content: space-between;
+    min-height: 100%;
+  }
 
-.middle {
-  background-color: #BB56ED;
-  /* width: *; */
-  /* flex-grow: 0; */
-  /* display: block; */
-  /* flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start; */
-}
+  .middle {
+    background-color: #BB56ED;
+    justify-content: flex-start;
+  }
 
-/* TYPOGRAPHY */
+  /* TYPOGRAPHY */
 
-h1 {
-  font-size: 5vw;
-  margin: 0.7em 0 0 0;
-}
+  h1 {
+    font-size: 5vw;
+    margin: 0.7em 0 0 0;
+  }
 
-h2 {
-  font-size: 2vw;
-  margin-bottom: 5vw;
-}
+  h2 {
+    font-size: 2vw;
+    margin-bottom: 5vw;
+  }
 
-h3 {
-  font-size: 1.8vw;
-  margin: 0;
-}
+  h3 {
+    font-size: 1.8vw;
+    margin: 0;
+  }
 
-p {
-  font-size: 1.5vw;
-}
+  p {
+    font-size: 1.5vw;
+  }
 
-figure {
-  font-size: 3vw;
-  margin: 1.5rem 0 0 0;
-}
+  figure {
+    font-size: 3vw;
+    margin: 1.5rem 0 0 0;
+  }
 
-.wins {
-  font-size: 1.8vw;
-}
+  .wins {
+    font-size: 1.8vw;
+  }
 
-.change-game {
-  font-size: 1.2vw;
-  margin: 6vw 0 0 0;
-  padding: 1vw;
-}
+  .change-game {
+    font-size: 1.2vw;
+    margin: 6vw 0 0 0;
+    padding: 1vw;
+  }
 
-aside {
-  font-size: 2vw;  
-}
+  aside {
+    font-size: 2vw;  
+  }
 
-/* MODULES */
+  /* MODULES */
 
-img {
-  width: 14vw;
-}
+  img {
+    width: 14vw;
+  }
 
-.game-selection {
-  margin: 1.5vw 0;
-  width: 19vw;
+  .game-selection {
+    margin: 1.5vw 0;
+    width: 19vw;
+  }
 }
