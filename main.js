@@ -12,6 +12,7 @@ instantiatePlayers();
 game.players[0].retrieveWinsFromStorage();
 game.players[1].retrieveWinsFromStorage();
 
+var wholeScreen = document.querySelector('#wholeScreen');
 var leftBottom = document.querySelector('#leftBottom');
 var rightBottom = document.querySelector('#rightBottom');
 var subHeaderMobile = document.querySelector('#subHeaderMobile');
@@ -281,10 +282,7 @@ function showWinner() {
 };
 
 function clearAfterTimeout() {
-  document.getElementById('changeGameBtnMobile').disabled = true;
-  document.getElementById('changeGameBtn').disabled = true;
-  document.getElementById('choseFighterMobile').style.pointerEvents = 'none'
-  document.getElementById('choseFighter').style.pointerEvents = 'none'
+  document.getElementById('wholeScreen').style.pointerEvents = 'none';
   var timeout = setTimeout(function() {
     hideAllImages();
     showWhichGame();
@@ -298,10 +296,7 @@ function hideAllImages() {
 };
 
 function showWhichGame() {
-  document.getElementById('changeGameBtnMobile').disabled = false;
-  document.getElementById('changeGameBtn').disabled = false;
-  document.getElementById('choseFighterMobile').style.pointerEvents = 'auto'
-  document.getElementById('choseFighter').style.pointerEvents = 'auto'
+  document.getElementById('wholeScreen').style.pointerEvents = 'auto';
   if (game.gameType === 'classic') {
     showClassicGame();
   } else {
