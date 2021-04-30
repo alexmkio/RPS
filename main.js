@@ -59,21 +59,21 @@ window.addEventListener('load', populateDynamicSides);
 classicGameBtnMobile.addEventListener('click', updateGametypeClassic);
 difficultGameBtnMobile.addEventListener('click', updateGametypeDifficult);
 changeGameBtnMobile.addEventListener('click', game.resetBoard);
-rockImgMobile.addEventListener('click', humanChoseRock);
-paperImgMobile.addEventListener('click', humanChosePaper);
-scissorsImgMobile.addEventListener('click', humanChoseScissors);
-lizardImgMobile.addEventListener('click', humanChoseLizard);
-alienImgMobile.addEventListener('click', humanChoseAlien);
+rockImgMobile.addEventListener('click', makeHumanChoice);
+paperImgMobile.addEventListener('click', makeHumanChoice);
+scissorsImgMobile.addEventListener('click', makeHumanChoice);
+lizardImgMobile.addEventListener('click', makeHumanChoice);
+alienImgMobile.addEventListener('click', makeHumanChoice);
 headerTextMobile.addEventListener('click', resetWins);
 
 classicGameBtn.addEventListener('click', updateGametypeClassic);
 difficultGameBtn.addEventListener('click', updateGametypeDifficult);
 changeGameBtn.addEventListener('click', game.resetBoard);
-rockImg.addEventListener('click', humanChoseRock);
-paperImg.addEventListener('click', humanChosePaper);
-scissorsImg.addEventListener('click', humanChoseScissors);
-lizardImg.addEventListener('click', humanChoseLizard);
-alienImg.addEventListener('click', humanChoseAlien);
+rockImg.addEventListener('click', makeHumanChoice);
+paperImg.addEventListener('click', makeHumanChoice);
+scissorsImg.addEventListener('click', makeHumanChoice);
+lizardImg.addEventListener('click', makeHumanChoice);
+alienImg.addEventListener('click', makeHumanChoice);
 headerText.addEventListener('click', resetWins);
 
 function populateDynamicSides() {
@@ -161,28 +161,8 @@ function assignComputerChoice() {
   };
 };
 
-function humanChoseRock() {
-  game.players[0].choice = 'Rock';
-  game.findWinner();
-};
-
-function humanChosePaper() {
-  game.players[0].choice = 'Paper';
-  game.findWinner();
-};
-
-function humanChoseScissors() {
-  game.players[0].choice = 'Scissors';
-  game.findWinner();
-};
-
-function humanChoseLizard() {
-  game.players[0].choice = 'Lizard';
-  game.findWinner();
-};
-
-function humanChoseAlien() {
-  game.players[0].choice = 'Alien';
+function makeHumanChoice(e) {
+  game.players[0].choice = e.target.parentElement.value;
   game.findWinner();
 };
 
