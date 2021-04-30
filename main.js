@@ -1,17 +1,3 @@
-var game = new Game();
-
-function instantiatePlayers() {
-  var human = new Player({ name: 'Human', emoji: '👩🏻' });
-  var computer = new Player({ name: 'Computer', emoji: '💻' });
-  game.players.push(human);
-  game.players.push(computer);
-};
-
-instantiatePlayers();
-
-game.players[0].retrieveWinsFromStorage();
-game.players[1].retrieveWinsFromStorage();
-
 var wholeScreen = document.querySelector('#wholeScreen');
 var leftBottom = document.querySelector('#leftBottom');
 var rightBottom = document.querySelector('#rightBottom');
@@ -52,6 +38,19 @@ var paperImgDraw = document.querySelector('#paperImgDraw');
 var scissorsImgDraw = document.querySelector('#scissorsImgDraw');
 var lizardImgDraw = document.querySelector('#lizardImgDraw');
 var alienImgDraw = document.querySelector('#alienImgDraw');
+
+var game = new Game();
+
+function instantiatePlayers() {
+  var human = new Player({ name: 'Human', emoji: '👩🏻' });
+  var computer = new Player({ name: 'Computer', emoji: '💻' });
+  game.players.push(human);
+  game.players.push(computer);
+  game.players[0].retrieveWinsFromStorage();
+  game.players[1].retrieveWinsFromStorage();
+};
+
+window.addEventListener('load', instantiatePlayers);
 
 window.addEventListener('load', populateDynamicSides);
 
