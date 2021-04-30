@@ -5,7 +5,7 @@ class Game {
     this.whosTurn;
     this.winner;
   };
-  whoWon() {
+  findWinner() {
     if (this.players[0].choice === this.players[1].choice) {
       this.winner = 'draw';
     } else if (this.players[0].choice === 'Rock' && this.players[1].choice === 'Scissors' ||

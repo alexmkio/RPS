@@ -163,27 +163,27 @@ function assignComputerChoice() {
 
 function humanChoseRock() {
   game.players[0].choice = 'Rock';
-  game.whoWon();
+  game.findWinner();
 };
 
 function humanChosePaper() {
   game.players[0].choice = 'Paper';
-  game.whoWon();
+  game.findWinner();
 };
 
 function humanChoseScissors() {
   game.players[0].choice = 'Scissors';
-  game.whoWon();
+  game.findWinner();
 };
 
 function humanChoseLizard() {
   game.players[0].choice = 'Lizard';
-  game.whoWon();
+  game.findWinner();
 };
 
 function humanChoseAlien() {
   game.players[0].choice = 'Alien';
-  game.whoWon();
+  game.findWinner();
 };
 
 function showWinnerHeading() {
