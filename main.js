@@ -1,17 +1,3 @@
-var game = new Game();
-
-function instantiatePlayers() {
-  var human = new Player({ name: 'Human', emoji: '👩🏻' });
-  var computer = new Player({ name: 'Computer', emoji: '💻' });
-  game.players.push(human);
-  game.players.push(computer);
-};
-
-instantiatePlayers();
-
-game.players[0].retrieveWinsFromStorage();
-game.players[1].retrieveWinsFromStorage();
-
 var wholeScreen = document.querySelector('#wholeScreen');
 var leftBottom = document.querySelector('#leftBottom');
 var rightBottom = document.querySelector('#rightBottom');
@@ -33,6 +19,7 @@ var scissorsImgDrawMobile = document.querySelector('#scissorsImgDrawMobile');
 var lizardImgDrawMobile = document.querySelector('#lizardImgDrawMobile');
 var alienImgDrawMobile = document.querySelector('#alienImgDrawMobile');
 var allImages = document.querySelectorAll('img');
+var headerTextMobile = document.querySelector('#headerTextMobile');
 
 var leftColumn = document.querySelector('#leftColumn');
 var rightColumn = document.querySelector('#rightColumn');
@@ -52,26 +39,34 @@ var paperImgDraw = document.querySelector('#paperImgDraw');
 var scissorsImgDraw = document.querySelector('#scissorsImgDraw');
 var lizardImgDraw = document.querySelector('#lizardImgDraw');
 var alienImgDraw = document.querySelector('#alienImgDraw');
+var headerText = document.querySelector('#headerText');
+
+var game = new Game();
+
+function instantiatePlayers() {
+  var human = new Player({ name: 'Human', emoji: '👩🏻' });
+  var computer = new Player({ name: 'Computer', emoji: '💻' });
+  game.players.push(human);
+  game.players.push(computer);
+  game.players[0].retrieveWinsFromStorage();
+  game.players[1].retrieveWinsFromStorage();
+};
+
+window.addEventListener('load', instantiatePlayers);
 
 window.addEventListener('load', populateDynamicSides);
 
+choseFighterMobile.addEventListener('click', makeHumanChoice);
 classicGameBtnMobile.addEventListener('click', updateGametypeClassic);
 difficultGameBtnMobile.addEventListener('click', updateGametypeDifficult);
 changeGameBtnMobile.addEventListener('click', game.resetBoard);
-rockImgMobile.addEventListener('click', humanChoseRock);
-paperImgMobile.addEventListener('click', humanChosePaper);
-scissorsImgMobile.addEventListener('click', humanChoseScissors);
-lizardImgMobile.addEventListener('click', humanChoseLizard);
-alienImgMobile.addEventListener('click', humanChoseAlien);
+headerTextMobile.addEventListener('click', resetWins);
 
+choseFighter.addEventListener('click', makeHumanChoice);
 classicGameBtn.addEventListener('click', updateGametypeClassic);
 difficultGameBtn.addEventListener('click', updateGametypeDifficult);
 changeGameBtn.addEventListener('click', game.resetBoard);
-rockImg.addEventListener('click', humanChoseRock);
-paperImg.addEventListener('click', humanChosePaper);
-scissorsImg.addEventListener('click', humanChoseScissors);
-lizardImg.addEventListener('click', humanChoseLizard);
-alienImg.addEventListener('click', humanChoseAlien);
+headerText.addEventListener('click', resetWins);
 
 function populateDynamicSides() {
   leftBottom.innerHTML = `
@@ -158,29 +153,9 @@ function assignComputerChoice() {
   };
 };
 
-function humanChoseRock() {
-  game.players[0].choice = 'Rock';
-  game.whoWon();
-};
-
-function humanChosePaper() {
-  game.players[0].choice = 'Paper';
-  game.whoWon();
-};
-
-function humanChoseScissors() {
-  game.players[0].choice = 'Scissors';
-  game.whoWon();
-};
-
-function humanChoseLizard() {
-  game.players[0].choice = 'Lizard';
-  game.whoWon();
-};
-
-function humanChoseAlien() {
-  game.players[0].choice = 'Alien';
-  game.whoWon();
+function makeHumanChoice(e) {
+  game.players[0].choice = e.target.parentElement.value;
+  game.findWinner();
 };
 
 function showWinnerHeading() {
@@ -342,4 +317,12 @@ function getRandomInt(max) {
   min = Math.ceil(1);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min);
+};
+
+function resetWins() {
+  game.players[0].wins = 0;
+  game.players[1].wins = 0;
+  game.players[0].saveWinsToStorage();
+  game.players[1].saveWinsToStorage();
+  populateDynamicSides();
 };
