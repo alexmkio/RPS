@@ -56,24 +56,16 @@ window.addEventListener('load', instantiatePlayers);
 
 window.addEventListener('load', populateDynamicSides);
 
+choseFighterMobile.addEventListener('click', makeHumanChoice);
 classicGameBtnMobile.addEventListener('click', updateGametypeClassic);
 difficultGameBtnMobile.addEventListener('click', updateGametypeDifficult);
 changeGameBtnMobile.addEventListener('click', game.resetBoard);
-rockImgMobile.addEventListener('click', makeHumanChoice);
-paperImgMobile.addEventListener('click', makeHumanChoice);
-scissorsImgMobile.addEventListener('click', makeHumanChoice);
-lizardImgMobile.addEventListener('click', makeHumanChoice);
-alienImgMobile.addEventListener('click', makeHumanChoice);
 headerTextMobile.addEventListener('click', resetWins);
 
+choseFighter.addEventListener('click', makeHumanChoice);
 classicGameBtn.addEventListener('click', updateGametypeClassic);
 difficultGameBtn.addEventListener('click', updateGametypeDifficult);
 changeGameBtn.addEventListener('click', game.resetBoard);
-rockImg.addEventListener('click', makeHumanChoice);
-paperImg.addEventListener('click', makeHumanChoice);
-scissorsImg.addEventListener('click', makeHumanChoice);
-lizardImg.addEventListener('click', makeHumanChoice);
-alienImg.addEventListener('click', makeHumanChoice);
 headerText.addEventListener('click', resetWins);
 
 function populateDynamicSides() {
