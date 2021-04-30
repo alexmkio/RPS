@@ -19,6 +19,7 @@ var scissorsImgDrawMobile = document.querySelector('#scissorsImgDrawMobile');
 var lizardImgDrawMobile = document.querySelector('#lizardImgDrawMobile');
 var alienImgDrawMobile = document.querySelector('#alienImgDrawMobile');
 var allImages = document.querySelectorAll('img');
+var headerTextMobile = document.querySelector('#headerTextMobile');
 
 var leftColumn = document.querySelector('#leftColumn');
 var rightColumn = document.querySelector('#rightColumn');
@@ -38,6 +39,7 @@ var paperImgDraw = document.querySelector('#paperImgDraw');
 var scissorsImgDraw = document.querySelector('#scissorsImgDraw');
 var lizardImgDraw = document.querySelector('#lizardImgDraw');
 var alienImgDraw = document.querySelector('#alienImgDraw');
+var headerText = document.querySelector('#headerText');
 
 var game = new Game();
 
@@ -62,6 +64,7 @@ paperImgMobile.addEventListener('click', humanChosePaper);
 scissorsImgMobile.addEventListener('click', humanChoseScissors);
 lizardImgMobile.addEventListener('click', humanChoseLizard);
 alienImgMobile.addEventListener('click', humanChoseAlien);
+headerTextMobile.addEventListener('click', resetWins);
 
 classicGameBtn.addEventListener('click', updateGametypeClassic);
 difficultGameBtn.addEventListener('click', updateGametypeDifficult);
@@ -71,6 +74,7 @@ paperImg.addEventListener('click', humanChosePaper);
 scissorsImg.addEventListener('click', humanChoseScissors);
 lizardImg.addEventListener('click', humanChoseLizard);
 alienImg.addEventListener('click', humanChoseAlien);
+headerText.addEventListener('click', resetWins);
 
 function populateDynamicSides() {
   leftBottom.innerHTML = `
@@ -341,4 +345,12 @@ function getRandomInt(max) {
   min = Math.ceil(1);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min);
+};
+
+function resetWins() {
+  game.players[0].wins = 0;
+  game.players[1].wins = 0;
+  game.players[0].saveWinsToStorage();
+  game.players[1].saveWinsToStorage();
+  populateDynamicSides();
 };
