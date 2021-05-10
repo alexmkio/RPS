@@ -311,9 +311,9 @@ function imgHide(e) {
   e.classList.remove('pointer');
 };
 
-function getRandomInt(max) {
-  min = Math.ceil(1);
-  max = Math.floor(max);
+function getRandomInt(int) {
+  const min = Math.ceil(1);
+  let max = Math.floor(int);
   return Math.floor(Math.random() * (max - min) + min);
 };
 
