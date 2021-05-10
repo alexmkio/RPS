@@ -265,9 +265,7 @@ function clearAfterTimeout() {
 };
 
 function hideAllImages() {
-  for (var i = 0; i < allImages.length; i++) {
-		imgHide(allImages[i]);
-	};
+  allImages.forEach((element) => imgHide(element));
 };
 
 function showWhichGame() {
